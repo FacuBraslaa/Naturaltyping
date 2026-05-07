@@ -42,6 +42,16 @@ EOF
 
 chmod +x run_naturaltyping.sh
 
+echo ""
 echo "Installation complete!"
 echo "You can now run the tool using: ./run_naturaltyping.sh"
+echo ""
+echo "For keyboard typing:"
+echo "  ./run_naturaltyping.sh --text 'Hello World'"
+echo ""
+echo "For Google Drive typing (requires setup):"
+echo "  1. Follow instructions in GOOGLE_DRIVE_SETUP.md"
+echo "  2. Then run: ./run_naturaltyping.sh --drive --doc-name 'Test' --text 'Hello'"
+echo ""
 echo "Note: You may need to grant Accessibility permissions to your terminal."
+

@@ -8,6 +8,7 @@ Naturaltyping is a Python tool that simulates human typing behavior. It mimics t
 - **Typo Simulation**: Occasional typos based on QWERTY keyboard layout, with automatic backspace correction.
 - **CLI Support**: Run from the command line with custom text, files, speed, and error rates.
 - **Hand Detection**: Logic to determine which hand types which character to adjust timing.
+- **Google Drive Integration**: Type directly into Google Docs with human-like timing and typos.
 
 ## Installation
 
@@ -69,6 +70,63 @@ If you prefer to run it manually with Python:
     ```bash
     python main.py --text "Your text here"
     ```
+
+## Google Drive Integration
+
+Type directly into Google Docs with human-like timing!
+
+### Quick Start
+
+1. **Setup Google Cloud credentials** (one-time setup):
+   - Run: `bash setup_google_credentials.sh` (helper script)
+   - Or follow [GOOGLE_DRIVE_SETUP.md](GOOGLE_DRIVE_SETUP.md) for detailed instructions
+
+2. **Create and type into a new Google Doc**:
+   ```bash
+   ./run_naturaltyping.sh --drive --doc-name "My Document" --text "Your text here"
+   ```
+
+3. **Type into an existing Google Doc**:
+   ```bash
+   ./run_naturaltyping.sh --drive --doc-id "DOCUMENT_ID" --text "More text"
+   ```
+
+### Google Drive Examples
+
+Type from a file:
+```bash
+./run_naturaltyping.sh --drive --doc-name "Document from File" --file input.txt
+```
+
+Adjust speed and typo rate:
+```bash
+./run_naturaltyping.sh --drive --doc-name "Slow Typing" --text "Text" --speed 0.2 --error-rate 0.05
+```
+
+**Multi-user support** (use different Gmail accounts):
+```bash
+# User 1
+./run_naturaltyping.sh --drive --doc-name "Test" --text "Hola" --user "user1@gmail.com"
+
+# User 2 (will create separate token)
+./run_naturaltyping.sh --drive --doc-name "Test" --text "Hola" --user "user2@gmail.com"
+```
+
+**Write to specific sections** (useful for documents with multiple sections/tabs):
+```bash
+# List all sections in document
+./run_naturaltyping.sh --drive --doc-id "DOCUMENT_ID" --list-sections
+
+# Write to specific section
+./run_naturaltyping.sh --drive --doc-id "DOCUMENT_ID" --text "Text" --section "Section Name"
+```
+
+List all authenticated Gmail accounts:
+```bash
+./run_naturaltyping.sh --list-users
+```
+
+For more details, see [GOOGLE_DRIVE_SETUP.md](GOOGLE_DRIVE_SETUP.md)
 
 ## Note
 

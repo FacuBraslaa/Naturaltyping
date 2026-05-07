@@ -3,3 +3,7 @@ __pycache__/
 *.pyc
 .DS_Store
 .idea/
+
+# Google Drive credentials (NEVER commit these!)
+credentials.json
+token.pickle
